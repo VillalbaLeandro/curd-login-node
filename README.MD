@@ -6,7 +6,7 @@ CRUD de Usuarios:
         -limite: Número de usuarios a mostrar (defecto = 5)
         -desde: Índice desde el cual comenzar a mostrar usuarios (defecto = 0)
 ----------------------------------------------------------------------------        
-Buscar usuario por nombre o correo:
+Buscar usuario por  correo:
 -Método: GET
 -Ruta: {{url}}/api/usuarios/search
 Parámetros:
@@ -16,15 +16,13 @@ Actualizar usuario:
 -Método: PUT
 -Ruta: {{url}}/api/usuarios/:id
 Cuerpo de la Solicitud:
-    -correo: Nuevo correo electrónico del usuario
     -passwordActual: Contraseña actual del usuario
     -newPassword: Nueva contraseña del usuario
 Validaciones:
     -id: Debe ser un ID válido y existir en la base de datos.
-    -correo: Debe ser un correo electrónico válido.
 ----------------------------------------------------------------------------        
 Crear usuario:
--Método: POST
+-Método: POST 
 -Ruta: {{url}}/api/usuarios
 Cuerpo de la Solicitud:
     -correo: Correo electrónico del usuario
@@ -51,3 +49,7 @@ Cuerpo de la Solicitud:
 Validaciones:
     -correo: Debe ser un correo electrónico válido.
     -password: La contraseña es requerida.
+
+
+
+mejoras:

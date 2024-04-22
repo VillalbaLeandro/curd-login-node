@@ -44,7 +44,7 @@ const usuariosPost = async (req, res) => {
     const usuario = new Usuario({ nombre, correo, password, rol });
     // Encriptar la contraseña
     const salt = bcryptjs.genSaltSync(); //Numero de vueltas, por defecto 10
-    usuario.password = bcryptjs.hashSync(password, salt) //se llama a password que es la propiedad que esta en el Modelo Usuario. 
+    usuario.password = bcryptjs.hashSync(password, salt) //Se llama a password que es la propiedad que esta en el Modelo Usuario. 
     // Guardar en BD
     await usuario.save();
     res.json({
@@ -66,7 +66,7 @@ const usuariosPut = async (req, res) => {
         });
     }
 
-    // Validamos que se haya proporcionado la contraseña actual y la nueva contraseña
+    // Validamos que vengan la contraseña actual y la nueva contraseña
     if (!passwordActual || !newPassword) {
         return res.status(400).json({
             msg: 'Debes proporcionar la contraseña actual y la nueva contraseña'
@@ -82,7 +82,7 @@ const usuariosPut = async (req, res) => {
         });
     }
 
-    // Verificamos si la contraseña actual coincide con la almacenada en la base de datos
+    // Validamos la contraseña con la bd
     const passwordValida = await bcryptjs.compare(passwordActual, usuario.password);
 
     if (!passwordValida) {

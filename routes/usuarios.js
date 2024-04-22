@@ -27,15 +27,12 @@ router.put('/:id', [
     check('id', 'No es un id válido').isMongoId()
         .custom((id) => existeUsuarioPorId(id))
         .withMessage('El id no existe'),
-    check('correo', 'El correo es requerido')
-        .notEmpty()
-        .isEmail()
-        .withMessage('El mail ingresado no es valido'),
     validarCampos
 ], usuariosPut)
 
 // ---------crear usuario por body--------------------------------------------------------------------------------------------------------------------------
 router.post('/', [
+    check('nombre', 'El nombre de usuario es requerido').notEmpty(),
     check('password', 'La constraseña es requerida')
         .notEmpty(),
     //Esto es el regex para la validacion de contraseñas mas seguras
